@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+message AISocreRequest {
+    int32 user_id = 1;
+    int32 deposit = 2;
+    int32 age = 3;
+}
+
+message AIScoreData {
+    float score = 1;
+    string comment = 2;
+}
+
+message AIScoreResponse {
+    AIScoreData score_data = 1;
+}
+
+service ScoreResult {
+    rpc GetAISocre (AISocreRequest) returns (AIScoreResponse);
+}
